@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kriminologi – Begrepp och övningar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <img class="logo logo-henke" src="assets/larar-henke.png" alt="Lärar Henke">
+      <h1>KRIMINOLOGI</h1>
+      <img class="logo logo-alstromer" src="assets/alstromer.png" alt="Alströmergymnasiet">
+    </header>
+
+    <div class="red-line"></div>
+
+    <section id="home-screen" class="screen active" aria-labelledby="home-title">
+      <h2 id="home-title" class="sr-only">Huvudmeny</h2>
+
+      <button class="menu-card" data-target="concept-screen">
+        <div class="menu-icon cards-icon" aria-hidden="true">
+          <span></span><span></span><span>?</span>
+        </div>
+        <div class="menu-copy">
+          <h3>ALLA BEGREPP</h3>
+          <p>Träna viktiga juridiska begrepp.</p>
+          <p>Tryck på ett kort för att vända det.</p>
+        </div>
+        <div class="chevron">›</div>
+      </button>
+
+      <button class="menu-card" data-quiz="responsibility">
+        <div class="menu-icon clipboard-icon" aria-hidden="true">✓</div>
+        <div class="menu-copy">
+          <h3>ANSVAR FÖR BROTT</h3>
+          <p>Träna på strikt ansvar, rena handlingsbrott och effektbrott.</p>
+        </div>
+        <div class="chevron">›</div>
+      </button>
+
+      <button class="menu-card" data-quiz="rekvisit">
+        <div class="menu-icon scale-icon" aria-hidden="true">⚖</div>
+        <div class="menu-copy">
+          <h3>BROTTSREKVISIT</h3>
+          <p>Träna på objektiva och subjektiva brottsrekvisit.</p>
+        </div>
+        <div class="chevron">›</div>
+      </button>
+    </section>
+
+    <section id="concept-screen" class="screen">
+      <div class="section-heading">
+        <button class="back-button" data-target="home-screen">‹</button>
+        <div>
+          <h2>ALLA BEGREPP</h2>
+          <p>Tryck på ett kort för att vända det.</p>
+        </div>
+      </div>
+      <div id="concept-grid" class="concept-grid"></div>
+      <button class="primary-button bottom-button" data-target="home-screen">TILL HUVUDMENYN</button>
+    </section>
+
+    <section id="quiz-screen" class="screen">
+      <div class="section-heading">
+        <button class="back-button" data-target="home-screen">‹</button>
+        <div>
+          <h2 id="quiz-title">ÖVNING</h2>
+          <p id="quiz-progress">Fråga 1 av 10</p>
+        </div>
+      </div>
+
+      <article class="quiz-card">
+        <div id="question-category" class="category-label"></div>
+        <h3 id="question-text"></h3>
+        <div id="answer-options" class="answer-options"></div>
+
+        <div id="feedback" class="feedback hidden">
+          <h4 id="feedback-title"></h4>
+          <p id="feedback-text"></p>
+        </div>
+
+        <button id="next-button" class="primary-button hidden">NÄSTA FRÅGA</button>
+      </article>
+    </section>
+
+    <section id="result-screen" class="screen">
+      <div class="result-panel">
+        <h2>RESULTAT</h2>
+        <div id="score-ring" class="score-ring"><span id="score-value">0/10</span></div>
+        <p id="score-text" class="score-text"></p>
+
+        <div class="result-box">
+          <h3>BRA KOLL PÅ</h3>
+          <div id="strengths"></div>
+        </div>
+
+        <div class="result-box study-box">
+          <h3>TRÄNA MER PÅ</h3>
+          <div id="study-more"></div>
+        </div>
+
+        <button class="primary-button" data-target="home-screen">TILL HUVUDMENYN</button>
+        <button id="retry-button" class="secondary-button">ÖVA IGEN</button>
+      </div>
+    </section>
+
+    <footer>© Henrik Sjöqvist | Alströmergymnasiet</footer>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
