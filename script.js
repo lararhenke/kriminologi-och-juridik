@@ -97,10 +97,26 @@ function createConceptShuffleControl() {
   conceptGrid.parentNode.insertBefore(controls, conceptGrid);
 }
 
+
+function shuffleQuestionOptions(question) {
+  const indexedOptions = question.options.map((option, index) => ({
+    option,
+    isCorrect: index === question.answer
+  }));
+
+  const shuffledOptions = shuffle(indexedOptions);
+
+  return {
+    ...question,
+    options: shuffledOptions.map(item => item.option),
+    answer: shuffledOptions.findIndex(item => item.isCorrect)
+  };
+}
+
 function startQuiz(type) {
   currentQuizType = type;
   const bank = type === "responsibility" ? responsibilityQuestions : rekvisitQuestions;
-  currentQuestions = shuffle(bank).slice(0, 10);
+  currentQuestions = shuffle(bank).slice(0, 10).map(shuffleQuestionOptions);
   currentIndex = 0;
   correctCount = 0;
   categoryStats = {};
